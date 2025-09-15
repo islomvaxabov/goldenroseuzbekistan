@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Rose - Турецкая декоративная косметика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #D4AF37;
+            --secondary: #000;
+            --accent: #f8f8f8;
+            --text: #333;
+            --light: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        .logo-img {
+    height: 50px;   /* регулируй размер логотипа */
+    width: auto;
+    display: block;
+}
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url("images/background.jpg") no-repeat center center/cover;
+    height: 400px; /* блок фиксированной высоты */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light);
+    margin-top: 70px;
+}
+
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #c19b2e;
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Products Section */
+        .products {
+            background-color: var(--accent);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        /* Advantages Section */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .advantage-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .advantage-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Partners Section */
+        .partners {
+            background-color: var(--accent);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .partner-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s, opacity 0.3s;
+            text-align: center;
+        }
+        
+        .partner-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--light);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--light);
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--light);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <img src="images/GR-logo.png" alt="Golden Rose Logo" class="logo-img">
+        </div>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#products">Продукция</a></li>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#partners">Партнеры</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Турецкая декоративная косметика премиум-класса</h2>
+            <p>Официальный дистрибьютор бренда Golden Rose в Узбекистане. Широкий ассортимент качественной косметики по доступным ценам.</p>
+            <a href="#contact" class="btn">Связаться с нами</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>О компании</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <style>
+    p {
+        margin: 15px 0;
+        line-height: 1.6;
+        font-size: 16px;
+    }
+</style>
+
+<p><strong>Golden Rose Style and Beauty</strong> — одна из ведущих компаний по дистрибуции косметики в Узбекистане с более чем 25-летним опытом в beauty-индустрии. Мы специализируемся на импорте, оптовой и розничной торговле косметическими брендами высокого качества, обеспечивая стабильность и доверие во всех направлениях нашей деятельности.</p>
+
+<p>Одним из ключевых брендов в нашем портфолио является <strong>Golden Rose</strong> — известный турецкий производитель декоративной косметики, завоевавший признание во многих странах мира благодаря безупречному качеству и доступным ценам. Наша компания является официальным дистрибьютором <strong>Golden Rose</strong> в Узбекистане и предлагает широкий ассортимент продукции: от стойких помад и туши для ресниц до современных палеток теней и средств по уходу за кожей.</p>
+
+<p>Мы активно развиваем дистрибуцию по всей стране: сегодня с нами сотрудничают более <strong>250 партнёрских магазинов косметики в Ташкенте</strong>, работают <strong>региональные представители в 8 ключевых регионах Узбекистана</strong>, а также успешно функционируют фирменные магазины <strong>Golden Rose</strong> и <strong>Nature Republic</strong> в Ташкенте.</p>
+
+<p>Постоянно следя за мировыми beauty-трендами, мы расширяем ассортимент и обновляем каталог, чтобы предлагать нашим клиентам только лучшие и актуальные продукты.</p>
+
+                <a href="images/catalog.pdf" target="_blank" class="btn">Смотреть каталог</a>
+
+            </div>
+            <div class="about-image">
+                <img src="images/GR.jpg" alt="GR Image">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Products Section -->
+    <section id="products" class="section products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наша продукция</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/lip.jpg" alt="Помады и блески">
+                    </div>
+                    <div class="product-info">
+                        <h3>Помады и блески</h3>
+                        <p>Стойкие матовые и satin помады, блески для губ с разнообразной палитрой оттенков.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/eyeshadow.jpg" alt="Тени для век">
+                    </div>
+                    <div class="product-info">
+                        <h3>Тени для век</h3>
+                        <p>Палетки теней с разнообразными текстурами: матовые, металлик, шиммер и глиттер.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/eye.jpg" alt="Тушь для ресниц">
+                    </div>
+                    <div class="product-info">
+                        <h3>Тушь для ресниц</h3>
+                        <p>Туши для объема, длины и завивки ресниц с инновационными формулами.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="images/uxod.jpg" alt="Уходовая косметика">
+                    </div>
+                    <div class="product-info">
+                        <h3>Средства по уходу</h3>
+                        <p>База под макияж, праймеры, фиксирующие спреи и средства для демакияжа.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section id="advantages" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши преимущества</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Высокое качество</h3>
+                    <p>Вся продукция соответствует международным стандартам и имеет необходимые сертификаты качества.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Обеспечиваем оперативную доставку по всему Узбекистану с соблюдением всех условий транспортировки.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Доступные цены</h3>
+                    <p>Прямые поставки от производителя позволяют предлагать конкурентные цены нашим партнёрам.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Профессиональная поддержка</h3>
+                    <p>Наши менеджеры всегда готовы помочь с выбором продукции и ответить на все ваши вопросы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+<section id="partners" class="section partners">
+    <div class="container">
+        <div class="section-title">
+            <h2>Наши бренды</h2>
+        </div>
+        <div class="partners-grid">
+            <div class="partner-logo">
+                <img src="images/naturerepublic.png" alt="Nature Republic">
+                <div class="product-info">
+                    <h3>Nature Republic</h3>
+                </div>
+            </div>
+            <div class="partner-logo">
+                <img src="images/medipeel.jpg" alt="MediPeel">
+                <div class="product-info">
+                    <h3>Medi Peel</h3>
+                </div>
+            </div>
+            <div class="partner-logo">
+                <img src="images/deoproce.jpg" alt="Deoproce">
+                <div class="product-info">
+                    <h3>Deoproce</h3>
+                </div>
+            </div>
+            <div class="partner-logo">
+                <img src="images/welcos.png" alt="Welcos">
+                <div class="product-info">
+                    <h3>Welcos</h3>
+                </div>
+            </div>
+            <div class="partner-logo">
+                <img src="images/skin1004.png" alt="Skin1004">
+                <div class="product-info">
+                    <h3>Skin1004</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+</div>
+</section>
+</section>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Свяжитесь с нами</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Контактная информация</h3>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <p>г. Ташкент, ул. А.Кадиры, д. 24</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <p>+998 99 006-44-55</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p>info@goldenrose.uz</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <p>Пн-Сб: 9:00 - 20:00</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+    <h3>Отправить сообщение</h3>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea id="message" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn">Отправить</button>
+    </form>
+</div>
+
+<script>
+    const BOT_TOKEN = "8152060875:AAE2r7hi8YSL3mpYHdOEhPmn1-sWyvn10iM";
+    const CHAT_ID = "244471632"; 
+    const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let message = document.getElementById("message").value;
+
+        let text = `📩 Новый запрос:%0A👤 Имя: ${name}%0A📧 Email: ${email}%0A📱 Телефон: ${phone}%0A💬 Сообщение: ${message}`;
+
+        fetch(API_URL, {
+            method: "POST",
+            headers: {"Content-Type": "application/x-www-form-urlencoded"},
+            body: `chat_id=${CHAT_ID}&text=${text}`
+        })
+        .then(response => response.json())
+        .then(result => {
+            alert("✅ Сообщение отправлено в Telegram!");
+            document.getElementById("contactForm").reset();
+        })
+        .catch(error => {
+            alert("❌ Ошибка при отправке!");
+            console.error(error);
+        });
+    });
+</script>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Golden Rose</h3>
+                    <p>Официальный дистрибьютор турецкой декоративной косметики в Узбекистане. Качество, стиль и доступные цены.</p>
+                </div>
+                   <div class="footer-column">
+                    <h3>Компания</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Оптовикам</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Golden Rose. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+        
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
