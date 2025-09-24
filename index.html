@@ -297,6 +297,47 @@
             max-width: 100%;
             max-height: 80px;
         }
+
+        /* Retail Partners Section */
+        .retail-partners {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .retail-partners-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .retail-partner {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .retail-partner-logo {
+            margin-bottom: 20px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .retail-partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            transition: transform 0.3s;
+        }
+        
+        .retail-partner:hover .retail-partner-logo img {
+            transform: scale(1.05);
+        }
+        
+        .retail-partner h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
         
         /* Contact Section */
         .contact-content {
@@ -465,6 +506,10 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .retail-partners-grid {
+                gap: 40px;
+            }
         }
     </style>
 </head>
@@ -483,8 +528,8 @@
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#products">Продукция</a></li>
                 <li><a href="#advantages">Преимущества</a></li>
-                <li><a href="#advantages">Партнеры</a></li>
                 <li><a href="#partners">Бренды</a></li>
+                <li><a href="#retail-partners">Партнеры</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </nav>
@@ -669,10 +714,31 @@
     </div>
 </section>
 
-    
-</div>
+    <!-- Retail Partners Section -->
+<section id="retail-partners" class="section retail-partners">
+    <div class="container">
+        <div class="section-title">
+            <h2>Наши партнеры</h2>
+        </div>
+        <div class="retail-partners-grid">
+            <div class="retail-partner">
+                <div class="retail-partner-logo">
+                    <img src="images/uzum.jpg" alt="Uzum Market">
+                </div>
+                <h3>Uzum Market</h3>
+                <p>Крупнейшая маркетплейс-платформа Узбекистана</p>
+            </div>
+            <div class="retail-partner">
+                <div class="retail-partner-logo">
+                    <img src="images/mcosmetics.jpg" alt="M-Cosmetics">
+                </div>
+                <h3>M-Cosmetics</h3>
+                <p>Сеть магазинов косметики и парфюмерии</p>
+            </div>
+        </div>
+    </div>
 </section>
-</section>
+
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
@@ -777,11 +843,12 @@
                    <div class="footer-column">
                     <h3>Компания</h3>
                     <ul class="footer-links">
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Доставка и оплата</a></li>
-                        <li><a href="#">Оптовикам</a></li>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#products">Продукция</a></li>
+                        <li><a href="#advantages">Преимущества</a></li>
+                        <li><a href="#partners">Бренды</a></li>
+                        <li><a href="#retail-partners">Партнеры</a></li>
+                        <li><a href="#contact">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -835,11 +902,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
