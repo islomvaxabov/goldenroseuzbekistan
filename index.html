@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Rose Style and Beauty — ведущая дистрибьюторская компания в сфере косметики и парфюмерии в Узбекистане.</title>
+    <title>Golden Rose Style and Beauty — Ведущий дистрибьютор косметики</title>
+    <!-- Иконки -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #D4AF37;
-            --secondary: #000;
-            --accent: #f8f8f8;
-            --text: #333;
-            --light: #fff;
+            /* Цветовая палитра Premium Gold */
+            --primary: #D4AF37; 
+            --primary-dark: #B4941F;
+            --primary-gradient: linear-gradient(135deg, #F2D06B 0%, #D4AF37 50%, #B4941F 100%);
+            --secondary: #111111;
+            --text: #333333;
+            --text-light: #666666;
+            --bg-light: #ffffff;
+            --bg-gray: #f8f9fa;
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.05);
+            --shadow-gold: 0 15px 30px rgba(212, 175, 55, 0.3);
+            --radius: 12px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             color: var(--text);
             line-height: 1.6;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
         }
         
         .container {
@@ -33,14 +50,17 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* --- HEADER & NAV (Glassmorphism) --- */
         header {
-            background-color: var(--light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         .header-container {
@@ -50,110 +70,156 @@
             padding: 15px 0;
         }
         
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo h1 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-left: 10px;
-        }
-        
-        .logo-icon {
-            color: var(--primary);
-            font-size: 28px;
-        }
         .logo-img {
-    height: 50px;   /* регулируй размер логотипа */
-    width: auto;
-    display: block;
-}
+            height: 55px;
+            width: auto;
+            transition: transform 0.3s;
+        }
 
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
         }
         
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
         
         nav ul li a {
             text-decoration: none;
             color: var(--secondary);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
             transition: color 0.3s;
         }
         
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
         nav ul li a:hover {
             color: var(--primary);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
         
         .mobile-menu {
             display: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--secondary);
         }
         
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url("images/background.jpg") no-repeat center center/cover;
-    height: 400px; /* блок фиксированной высоты */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--light);
-    margin-top: 70px;
-}
-
+            /* Замените images/background.jpg на реальный путь, если картинка другая */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url("images/background.jpg") no-repeat center center/cover;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
         
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 900px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease-out;
         }
-        
+
         .hero h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.3;
             margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        
+
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.9;
         }
         
+        /* --- UI КНОПКИ (PREMIUM STYLE) --- */
         .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--light);
-            padding: 12px 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            background-size: 200% auto;
+            color: #fff;
+            padding: 15px 45px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px; /* Pill shape */
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
             text-decoration: none;
+            box-shadow: var(--shadow-gold);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
-            background: #c19b2e;
+            background-position: right center;
             transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        /* Эффект блика на кнопке */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
         }
         
-        /* About Section */
+        .btn:hover::after {
+            left: 100%;
+            transition: 0.6s;
+        }
+        
+        /* --- SECTIONS COMMON --- */
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
@@ -161,7 +227,7 @@
             color: var(--secondary);
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
         
         .section-title h2::after {
@@ -170,60 +236,74 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 3px;
+            width: 80px;
+            height: 4px;
             background: var(--primary);
+            border-radius: 2px;
         }
         
+        /* --- ABOUT --- */
         .about-content {
             display: flex;
             align-items: center;
+            gap: 50px;
             flex-wrap: wrap;
         }
         
         .about-text {
             flex: 1;
             min-width: 300px;
-            padding: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.05rem;
         }
         
         .about-image {
             flex: 1;
             min-width: 300px;
-            padding: 20px;
         }
         
         .about-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.5s;
         }
         
-        /* Products Section */
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        /* --- PRODUCTS (CARDS) --- */
         .products {
-            background-color: var(--accent);
+            background-color: var(--bg-gray);
         }
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
         
         .product-card {
-            background: var(--light);
-            border-radius: 10px;
+            background: var(--bg-light);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
         }
         
         .product-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
         .product-img {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
         
@@ -231,7 +311,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.6s;
         }
         
         .product-card:hover .product-img img {
@@ -239,16 +319,22 @@
         }
         
         .product-info {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
         }
         
         .product-info h3 {
             margin-bottom: 10px;
             color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
         
-        /* Advantages Section */
+        /* --- ADVANTAGES --- */
         .advantages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -257,53 +343,72 @@
         
         .advantage-card {
             text-align: center;
-            padding: 30px 20px;
-            background: var(--light);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px 20px;
+            background: var(--bg-light);
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--primary);
         }
         
         .advantage-icon {
-            font-size: 40px;
-            color: var(--primary);
+            font-size: 45px;
+            /* Градиент для иконки */
+            background: linear-gradient(45deg, #D4AF37, #B4941F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
         
-        /* Partners Section */
+        /* --- PARTNERS & BRANDS --- */
         .partners {
-            background-color: var(--accent);
+            background-color: var(--bg-gray);
         }
-        
+
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
         
         .partner-logo {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
             filter: grayscale(100%);
             opacity: 0.7;
-            transition: filter 0.3s, opacity 0.3s;
-            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .partner-logo:hover {
             filter: grayscale(0);
             opacity: 1;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .partner-logo img {
             max-width: 100%;
-            max-height: 80px;
+            max-height: 70px;
+            object-fit: contain;
+            margin-bottom: 10px;
         }
 
-        /* Retail Partners Section */
-        .retail-partners {
-            padding: 80px 0;
-            background-color: var(--light);
+        .partner-logo h3 {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-top: 10px;
         }
         
+        /* --- RETAIL PARTNERS --- */
         .retail-partners-grid {
             display: flex;
             justify-content: center;
@@ -313,12 +418,21 @@
         
         .retail-partner {
             text-align: center;
-            max-width: 200px;
+            width: 220px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s;
+        }
+
+        .retail-partner:hover {
+            transform: translateY(-5px);
         }
         
         .retail-partner-logo {
             margin-bottom: 20px;
-            height: 100px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -326,24 +440,14 @@
         
         .retail-partner-logo img {
             max-width: 100%;
-            max-height: 80px;
-            transition: transform 0.3s;
+            max-height: 60px;
         }
         
-        .retail-partner:hover .retail-partner-logo img {
-            transform: scale(1.05);
-        }
-        
-        .retail-partner h3 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-        
-        /* Contact Section */
+        /* --- CONTACT FORM & INFO --- */
         .contact-content {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 50px;
         }
         
         .contact-info {
@@ -354,18 +458,39 @@
         .contact-form {
             flex: 1;
             min-width: 300px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #eee;
         }
         
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
         }
         
         .info-icon {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--primary);
-            margin-right: 15px;
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .form-group {
@@ -374,16 +499,26 @@
         
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .form-control {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px;
+            border: 2px solid #f1f1f1;
+            border-radius: 10px;
             font-size: 1rem;
+            transition: all 0.3s;
+            background: #fbfbfb;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
         }
         
         textarea.form-control {
@@ -391,18 +526,18 @@
             resize: vertical;
         }
         
-        /* Footer */
+        /* --- FOOTER --- */
         footer {
             background: var(--secondary);
-            color: var(--light);
-            padding: 50px 0 20px;
+            color: #e0e0e0;
+            padding: 70px 0 20px;
         }
         
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .footer-column {
@@ -411,8 +546,9 @@
         }
         
         .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #fff;
             position: relative;
             padding-bottom: 10px;
         }
@@ -432,17 +568,18 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: #ccc;
+            color: #aaa;
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-links a:hover {
             color: var(--primary);
+            padding-left: 5px;
         }
         
         .social-links {
@@ -454,26 +591,37 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             color: var(--light);
-            transition: background 0.3s, transform 0.3s;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            text-decoration: none;
         }
         
         .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
+            background: var(--primary-gradient);
+            color: #000;
+            transform: translateY(-5px);
         }
         
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #888;
         }
         
-        /* Responsive Styles */
+        /* --- АНИМАЦИИ --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -485,10 +633,11 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--light);
+                background: #fff;
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-top: 1px solid #eee;
             }
             
             nav ul.show {
@@ -496,7 +645,8 @@
             }
             
             nav ul li {
-                margin: 10px 0;
+                margin: 15px 0;
+                text-align: center;
             }
             
             .hero h2 {
@@ -507,91 +657,88 @@
                 font-size: 1rem;
             }
             
-            .retail-partners-grid {
-                gap: 40px;
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-content {
+                flex-direction: column-reverse;
+            }
+            
+            .btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-<header>
-    <div class="container header-container">
-        <div class="logo">
-            <img src="images/GR-logo.png" alt="Golden Rose Logo" class="logo-img">
-        </div>
-        <div class="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#products">Продукция</a></li>
-                <li><a href="#advantages">Преимущества</a></li>
-                <li><a href="#partners">Бренды</a></li>
-                <li><a href="#retail-partners">Партнеры</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
 
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <!-- Убедитесь, что файл GR-logo.png существует в папке images -->
+                <img src="images/GR-logo.png" alt="Golden Rose Logo" class="logo-img">
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#partners">Бренды</a></li>
+                    <li><a href="#retail-partners">Партнеры</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-          <h2 style="font-size:22px; font-weight:500; line-height:1.4;">
-  Golden Rose Style and Beauty — ведущая дистрибьюторская компания в сфере косметики и парфюмерии в Узбекистане.
-</h2>
-         <a href="#contact" class="btn">Связаться с нами</a>
+            <h2>Golden Rose Style and Beauty</h2>
+            <p>Ведущая дистрибьюторская компания в сфере косметики и парфюмерии в Узбекистане.</p>
+            <a href="#contact" class="btn">
+                <i class="fas fa-paper-plane"></i> Связаться с нами
+            </a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section">
-    <div class="container">
-        <div class="section-title">
-            <h2>О компании</h2>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <style>
-    p {
-        margin: 15px 0;
-        line-height: 1.6;
-        font-size: 16px;
-    }
-</style>
-
-<p><strong>Golden Rose Style and Beauty</strong> — одна из ведущих компаний по дистрибуции косметики в Узбекистане с более чем 25-летним опытом в beauty-индустрии. Мы специализируемся на импорте, оптовой и розничной торговле косметическими брендами высокого качества, обеспечивая стабильность и доверие во всех направлениях нашей деятельности.</p>
-
-<p>Одним из ключевых брендов в нашем портфолио является <strong>Golden Rose</strong> — известный турецкий производитель декоративной косметики, завоевавший признание во многих странах мира благодаря безупречному качеству и доступным ценам. Наша компания является официальным дистрибьютором <strong>Golden Rose</strong> в Узбекистане и предлагает широкий ассортимент продукции: от стойких помад и туши для ресниц до современных палеток теней и средств по уходу за кожей.</p>
-
-<p>Мы активно развиваем дистрибуцию по всей стране: сегодня с нами сотрудничают более <strong>250 партнёрских магазинов косметики в Ташкенте</strong>, работают <strong>региональные представители в 8 ключевых регионах Узбекистана</strong>, а также успешно функционируют фирменные магазины <strong>Golden Rose</strong> и <strong>Nature Republic</strong> в Ташкенте.</p>
-
-<p>Постоянно следя за мировыми beauty-трендами, мы расширяем ассортимент и обновляем каталог, чтобы предлагать нашим клиентам только лучшие и актуальные продукты.</p>
-
-              <a href="https://islomvaxabov.github.io/goldenroseuzbekistan/images/Catalog.pdf" 
-   class="btn" 
-   target="_blank">
-   Смотреть каталог
-</a>
-
-
+        <div class="container">
+            <div class="section-title">
+                <h2>О Компании</h2>
             </div>
-            <div class="about-image">
-                <img src="images/GR.jpg" alt="GR Image">
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Golden Rose Style and Beauty</strong> — одна из ведущих компаний по дистрибуции косметики в Узбекистане с более чем 25-летним опытом в beauty-индустрии. Мы специализируемся на импорте, оптовой и розничной торговле косметическими брендами высокого качества, обеспечивая стабильность и доверие во всех направлениях нашей деятельности.</p>
+
+                    <p>Одним из ключевых брендов в нашем портфолио является <strong>Golden Rose</strong> — известный турецкий производитель декоративной косметики, завоевавший признание во многих странах мира. Мы являемся официальным дистрибьютором и предлагаем широкий ассортимент продукции: от стойких помад до средств по уходу за кожей.</p>
+
+                    <p>Мы активно развиваем дистрибуцию по всей стране: сегодня с нами сотрудничают более <strong>250 партнёрских магазинов</strong> в Ташкенте, работают региональные представители в 8 ключевых регионах Узбекистана.</p>
+
+                    <div style="margin-top: 30px;">
+                        <a href="https://islomvaxabov.github.io/goldenroseuzbekistan/images/Catalog.pdf" class="btn" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Смотреть каталог
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/GR.jpg" alt="Офис Golden Rose">
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Products Section -->
     <section id="products" class="section products">
         <div class="container">
             <div class="section-title">
-                <h2>Наша продукция</h2>
+                <h2>Наша Продукция</h2>
             </div>
             <div class="products-grid">
                 <div class="product-card">
@@ -638,7 +785,7 @@
     <section id="advantages" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Наши преимущества</h2>
+                <h2>Наши Преимущества</h2>
             </div>
             <div class="advantages-grid">
                 <div class="advantage-card">
@@ -650,14 +797,14 @@
                 </div>
                 <div class="advantage-card">
                     <div class="advantage-icon">
-                        <i class="fas fa-truck"></i>
+                        <i class="fas fa-truck-fast"></i>
                     </div>
                     <h3>Быстрая доставка</h3>
                     <p>Обеспечиваем оперативную доставку по всему Узбекистану с соблюдением всех условий транспортировки.</p>
                 </div>
                 <div class="advantage-card">
                     <div class="advantage-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
+                        <i class="fas fa-hand-holding-dollar"></i>
                     </div>
                     <h3>Доступные цены</h3>
                     <p>Прямые поставки от производителя позволяют предлагать конкурентные цены нашим партнёрам.</p>
@@ -666,84 +813,72 @@
                     <div class="advantage-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3>Профессиональная поддержка</h3>
+                    <h3>Поддержка</h3>
                     <p>Наши менеджеры всегда готовы помочь с выбором продукции и ответить на все ваши вопросы.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners Section -->
-<section id="partners" class="section partners">
-    <div class="container">
-        <div class="section-title">
-            <h2>Наши бренды</h2>
-        </div>
-        <div class="partners-grid">
-            <div class="partner-logo">
-                <img src="images/naturerepublic.png" alt="Nature Republic">
-                <div class="product-info">
-                   <h3>Nature Republic</h3>
-                </div>
+    <!-- Partners / Brands Section -->
+    <section id="partners" class="section partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши Бренды</h2>
             </div>
-			<div class="partner-logo">
-                <img src="images/roxanne.jpg" alt="roxanne">
-                <div class="product-info">
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="images/naturerepublic.png" alt="Nature Republic">
+                    <h3>Nature Republic</h3>
+                </div>
+                <div class="partner-logo">
+                    <img src="images/roxanne.jpg" alt="roxanne">
                     <h3>Roxanne</h3>
                 </div>
-            </div>
-            <div class="partner-logo">
-                <img src="images/medipeel.jpg" alt="MediPeel">
-                <div class="product-info">
+                <div class="partner-logo">
+                    <img src="images/medipeel.jpg" alt="MediPeel">
                     <h3>Medi-Peel</h3>
                 </div>
-            </div>
-            <div class="partner-logo">
-                <img src="images/deoproce.jpg" alt="Deoproce">
-                <div class="product-info">
+                <div class="partner-logo">
+                    <img src="images/deoproce.jpg" alt="Deoproce">
                     <h3>Deoproce</h3>
                 </div>
-            </div>
-            <div class="partner-logo">
-                <img src="images/welcos.png" alt="Welcos">
-                <div class="product-info">
+                <div class="partner-logo">
+                    <img src="images/welcos.png" alt="Welcos">
                     <h3>Welcos</h3>
                 </div>
-            </div>
-            <div class="partner-logo">
-                <img src="images/skin1004.png" alt="Skin1004">
-                <div class="product-info">
+                <div class="partner-logo">
+                    <img src="images/skin1004.png" alt="Skin1004">
                     <h3>Skin1004</h3>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Retail Partners Section -->
-<section id="retail-partners" class="section retail-partners">
-    <div class="container">
-        <div class="section-title">
-            <h2>Наши партнеры</h2>
-        </div>
-        <div class="retail-partners-grid">
-            <div class="retail-partner">
-                <div class="retail-partner-logo">
-                    <img src="images/uzum.jpg" alt="Uzum Market">
-                </div>
-                <h3>Uzum Market</h3>
-                <p>Крупнейшая маркетплейс-платформа Узбекистана</p>
+    <section id="retail-partners" class="section retail-partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши Партнеры</h2>
             </div>
-            <div class="retail-partner">
-                <div class="retail-partner-logo">
-                    <img src="images/mcosmetics.jpg" alt="M-Cosmetics">
+            <div class="retail-partners-grid">
+                <div class="retail-partner">
+                    <div class="retail-partner-logo">
+                        <img src="images/uzum.jpg" alt="Uzum Market">
+                    </div>
+                    <h3>Uzum Market</h3>
+                    <p style="color: #777; font-size: 0.9rem;">Крупнейшая маркетплейс-платформа</p>
                 </div>
-                <h3>M-Cosmetics</h3>
-                <p>Сеть магазинов косметики и парфюмерии</p>
+                <div class="retail-partner">
+                    <div class="retail-partner-logo">
+                        <img src="images/mcosmetics.jpg" alt="M-Cosmetics">
+                    </div>
+                    <h3>M-Cosmetics</h3>
+                    <p style="color: #777; font-size: 0.9rem;">Сеть магазинов косметики и парфюмерии</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
@@ -754,86 +889,70 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Контактная информация</h3>
+                    <p style="margin-bottom: 20px; color: #666;">Мы всегда рады ответить на ваши вопросы и обсудить условия сотрудничества.</p>
+                    
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <p>г. Ташкент, ул. А.Кадиры, д. 24</p>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">Адрес:</strong>
+                            <span>г. Ташкент, ул. А.Кадиры, д. 24</span>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-phone-alt"></i>
                         </div>
-                        <p>+998 99 006-44-55</p>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">Телефон:</strong>
+                            <span>+998 99 006-44-55</span>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <p>info@goldenrose.uz</p>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">Email:</strong>
+                            <span>info@goldenrose.uz</span>
+                        </div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <p>Пн-Сб: 9:00 - 20:00</p>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">Режим работы:</strong>
+                            <span>Пн-Сб: 9:00 - 20:00</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="contact-form">
-    <h3>Отправить сообщение</h3>
-    <form id="contactForm">
-        <div class="form-group">
-            <label for="name">Ваше имя</label>
-            <input type="text" id="name" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Телефон</label>
-            <input type="tel" id="phone" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="message">Сообщение</label>
-            <textarea id="message" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn">Отправить</button>
-    </form>
-</div>
-
-<script>
-    const BOT_TOKEN = "8152060875:AAE2r7hi8YSL3mpYHdOEhPmn1-sWyvn10iM";
-    const CHAT_ID = "244471632"; 
-    const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let phone = document.getElementById("phone").value;
-        let message = document.getElementById("message").value;
-
-        let text = `📩 Новый запрос:%0A👤 Имя: ${name}%0A📧 Email: ${email}%0A📱 Телефон: ${phone}%0A💬 Сообщение: ${message}`;
-
-        fetch(API_URL, {
-            method: "POST",
-            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-            body: `chat_id=${CHAT_ID}&text=${text}`
-        })
-        .then(response => response.json())
-        .then(result => {
-            alert("✅ Сообщение отправлено в Telegram!");
-            document.getElementById("contactForm").reset();
-        })
-        .catch(error => {
-            alert("❌ Ошибка при отправке!");
-            console.error(error);
-        });
-    });
-</script>
-
+                    <h3 style="margin-bottom: 20px;">Отправить сообщение</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" class="form-control" placeholder="Введите ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="example@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+998 90 123 45 67">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" class="form-control" placeholder="Напишите ваш вопрос..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            Отправить <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -843,43 +962,54 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Golden Rose Style and Beauty</h3>
-                    <p>Ведущая дистрибьюторская компания в сфере косметики и парфюмерии в Узбекистане.</p>
+                    <h3>Golden Rose</h3>
+                    <p style="color: #aaa;">Ведущая дистрибьюторская компания в сфере косметики и парфюмерии в Узбекистане.</p>
                 </div>
                    <div class="footer-column">
-                    <h3>Компания</h3>
+                    <h3>Меню</h3>
                     <ul class="footer-links">
                         <li><a href="#about">О нас</a></li>
                         <li><a href="#products">Продукция</a></li>
                         <li><a href="#advantages">Преимущества</a></li>
-                        <li><a href="#partners">Бренды</a></li>
-                        <li><a href="#retail-partners">Партнеры</a></li>
                         <li><a href="#contact">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Социальные сети</h3>
+                    <h3>Мы в соцсетях</h3>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Golden Rose. Все права защищены.</p>
+                <p>&copy; 2025 Golden Rose Style and Beauty. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
+        // --- Мобильное меню ---
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navList = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navList.classList.toggle('show');
+            // Меняем иконку при открытии
+            const icon = this.querySelector('i');
+            if (navList.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
-        
-        // Smooth Scrolling
+
+        // --- Плавная прокрутка с учетом высоты шапки ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -889,25 +1019,75 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    // Закрыть меню, если открыто
+                    navList.classList.remove('show');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+
+                    // Расчет позиции с отступом
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                        top: offsetPosition,
+                        behavior: "smooth"
                     });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('nav ul').classList.remove('show');
                 }
             });
         });
         
-        // Form Submission
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // --- Отправка формы в Telegram ---
+        const BOT_TOKEN = "8152060875:AAE2r7hi8YSL3mpYHdOEhPmn1-sWyvn10iM";
+        const CHAT_ID = "244471632"; 
+        const API_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
             e.preventDefault();
-            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
-            this.reset();
+
+            // Анимация кнопки
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitBtn.style.opacity = "0.7";
+            submitBtn.disabled = true;
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let message = document.getElementById("message").value;
+
+            let text = `📩 *Новая заявка с сайта:*\n\n👤 *Имя:* ${name}\n📧 *Email:* ${email}\n📱 *Телефон:* ${phone}\n💬 *Сообщение:* ${message}`;
+
+            fetch(API_URL, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: "Markdown"
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                if(result.ok) {
+                    alert("✅ Спасибо! Ваше сообщение успешно отправлено.");
+                    document.getElementById("contactForm").reset();
+                } else {
+                    alert("❌ Ошибка сервиса. Попробуйте позже.");
+                }
+            })
+            .catch(error => {
+                alert("❌ Ошибка соединения!");
+                console.error(error);
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalContent;
+                submitBtn.style.opacity = "1";
+                submitBtn.disabled = false;
+            });
         });
     </script>
 </body>
 </html>
-
-
